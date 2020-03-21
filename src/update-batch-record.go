@@ -40,12 +40,9 @@ func main() {
 	//Auto create table based on Model
 	db.Debug().AutoMigrate(&UserModel{})
 
-	user:=&UserModel{Name:"John",Address:"New York"}
+	// Batch Update
+	db.Table("user_models").Where("address = ?", "Houston").Update("name", "Walker")
 
-	// Select, edit, and save
-	db.Find(&user)
-	user.Address = "Brisbane"
-	db.Save(&user)
-	log.Println("Record Updated")
+	log.Println("batch record Updated")
 
 }
