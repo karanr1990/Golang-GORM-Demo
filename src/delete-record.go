@@ -42,7 +42,15 @@ func main() {
 
 	// select records to delete it
 	db.Table("user_models").Where("address = ?", "Houston").Delete(&UserModel{})
+	
+	//Find the record and delete it
+        //db.Where("address=?", "Los Angeles").Delete(&UserModel{})
 
-	log.Println("batch record Updated")
+        // Select all records from a model and delete all
+        //db.Model(&UserModel{}).Delete(&UserModel{})
+
+	log.Println("delete record")
+	
+	
 
 }
